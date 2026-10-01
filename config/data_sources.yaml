@@ -1,0 +1,35 @@
+sources:
+
+  microsoft_predictive_maintenance:
+    type: csv
+    category: operational
+    provider: Microsoft
+    enabled: true
+    destination: data/raw/microsoft
+    filename: predictive_maintenance.csv
+    url: >
+      https://synapseaisolutionsa.z13.web.core.windows.net/data/MachineFaultDetection/predictive_maintenance.csv
+
+  world_bank:
+    type: rest_api
+    category: macroeconomic
+    provider: World Bank
+    enabled: true
+    base_url: https://api.worldbank.org/v2
+    destination: data/raw/world_bank
+
+  open_meteo:
+    type: rest_api
+    category: weather
+    provider: Open-Meteo
+    enabled: true
+    base_url: https://archive-api.open-meteo.com/v1/archive
+    destination: data/raw/weather
+
+  frankfurter:
+    type: rest_api
+    category: foreign_exchange
+    provider: Frankfurter
+    enabled: true
+    base_url: https://api.frankfurter.dev/v2
+    destination: data/raw/fx

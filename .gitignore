@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*.log
+
+# Models
+models/*.pkl
+models/*.joblib
+models/*.bin
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Raw / generated data
+data/raw/*
+data/interim/*
+data/processed/*
+
+# Keep folder placeholders
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+
+# Generated reports
+reports/*.pdf
+reports/*.html
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Coverage
+.coverage
+htmlcov/
+
+# pytest
+.pytest_cache/
+
+# Build
+build/
+dist/
+*.egg-info/

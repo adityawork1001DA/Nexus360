@@ -1,0 +1,29 @@
+project:
+  name: "NEXUS 360"
+  environment: "development"
+
+database:
+  host_env: "POSTGRES_HOST"
+  port_env: "POSTGRES_PORT"
+  database_env: "POSTGRES_DB"
+  user_env: "POSTGRES_USER"
+  password_env: "POSTGRES_PASSWORD"
+
+paths:
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+  models: "models"
+  reports: "reports"
+  logs: "logs"
+
+pipeline:
+  request_timeout_seconds: 30
+  max_retries: 3
+
+data_quality:
+  fail_on_duplicate_primary_key: true
+  fail_on_schema_error: true
+
+logging:
+  level: "INFO"
