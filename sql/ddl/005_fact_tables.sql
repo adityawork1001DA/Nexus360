@@ -106,6 +106,8 @@ CREATE TABLE IF NOT EXISTS warehouse.fact_cloud_usage (
         GENERATED ALWAYS AS IDENTITY
         PRIMARY KEY,
 
+    usage_id VARCHAR(50) UNIQUE,
+
     date_key INTEGER NOT NULL
         REFERENCES warehouse.dim_date(date_key),
 
