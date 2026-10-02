@@ -1,35 +1,95 @@
-sources:
+# ============================================================
+# NEXUS 360
+# External Data Source Configuration
+# ============================================================
 
-  microsoft_predictive_maintenance:
-    type: csv
-    category: operational
-    provider: Microsoft
-    enabled: true
-    destination: data/raw/microsoft
-    filename: predictive_maintenance.csv
-    url: >
-      https://synapseaisolutionsa.z13.web.core.windows.net/data/MachineFaultDetection/predictive_maintenance.csv
+world_bank:
+  enabled: true
 
-  world_bank:
-    type: rest_api
-    category: macroeconomic
-    provider: World Bank
-    enabled: true
-    base_url: https://api.worldbank.org/v2
-    destination: data/raw/world_bank
+  base_url: "https://api.worldbank.org/v2"
 
-  open_meteo:
-    type: rest_api
-    category: weather
-    provider: Open-Meteo
-    enabled: true
-    base_url: https://archive-api.open-meteo.com/v1/archive
-    destination: data/raw/weather
+  start_year: 2021
+  end_year: 2025
 
-  frankfurter:
-    type: rest_api
-    category: foreign_exchange
-    provider: Frankfurter
-    enabled: true
-    base_url: https://api.frankfurter.dev/v2
-    destination: data/raw/fx
+  countries:
+    - USA
+    - CAN
+    - BRA
+    - GBR
+    - DEU
+    - FRA
+    - ARE
+    - IND
+    - SGP
+    - JPN
+    - AUS
+
+  indicators:
+    NY.GDP.MKTP.CD:
+      name: "GDP current USD"
+
+    SP.POP.TOTL:
+      name: "Population total"
+
+    NY.GDP.PCAP.CD:
+      name: "GDP per capita current USD"
+
+    IT.NET.USER.ZS:
+      name: "Individuals using Internet percent"
+
+    FP.CPI.TOTL.ZG:
+      name: "Inflation consumer prices annual percent"
+
+
+open_meteo:
+  enabled: true
+
+  base_url: "https://archive-api.open-meteo.com/v1/archive"
+
+  start_date: "2023-01-01"
+  end_date: "2025-12-31"
+
+  daily_variables:
+    - temperature_2m_mean
+    - temperature_2m_max
+    - temperature_2m_min
+    - precipitation_sum
+    - wind_speed_10m_max
+
+  timezone: "auto"
+
+
+frankfurter:
+  enabled: true
+
+  base_url: "https://api.frankfurter.dev/v2"
+
+  start_date: "2023-01-01"
+  end_date: "2025-12-31"
+
+  base_currency: "USD"
+
+  currencies:
+    - EUR
+    - GBP
+    - INR
+    - JPY
+    - CAD
+    - AUD
+    - SGD
+    - BRL
+    - AED
+
+
+api_engine:
+  timeout_seconds: 30
+
+  max_attempts: 4
+
+  retry_min_seconds: 1
+
+  retry_max_seconds: 10
+
+  cache_enabled: true
+
+  cache_directory: "data/cache/api"
