@@ -1,0 +1,106 @@
+{
+  "registry_version": "1.0",
+  "generated_at_utc": "2026-10-02T12:26:56.164106+00:00",
+  "models": {
+    "renewal_risk_classifier": {
+      "artifact": "models\\artifacts\\renewal_risk_classifier.joblib",
+      "metrics": {
+        "model_type": "renewal_risk_classifier",
+        "selected_model": "logistic_regression",
+        "trained_at_utc": "2026-10-02T12:27:15.181616+00:00",
+        "rows": 8671,
+        "positive_rate": 0.5702917771883289,
+        "accuracy": 0.7052583025830258,
+        "precision": 0.7297921478060047,
+        "recall": 0.7669902912621359,
+        "f1": 0.7479289940828402,
+        "roc_auc": 0.7703992874703112,
+        "confusion_matrix": [
+          [
+            581,
+            351
+          ],
+          [
+            288,
+            948
+          ]
+        ],
+        "classification_report": {
+          "0": {
+            "precision": 0.6685845799769851,
+            "recall": 0.6233905579399142,
+            "f1-score": 0.6451971127151582,
+            "support": 932.0
+          },
+          "1": {
+            "precision": 0.7297921478060047,
+            "recall": 0.7669902912621359,
+            "f1-score": 0.7479289940828402,
+            "support": 1236.0
+          },
+          "accuracy": 0.7052583025830258,
+          "macro avg": {
+            "precision": 0.6991883638914949,
+            "recall": 0.695190424601025,
+            "f1-score": 0.6965630533989993,
+            "support": 2168.0
+          },
+          "weighted avg": {
+            "precision": 0.7034796693850422,
+            "recall": 0.7052583025830258,
+            "f1-score": 0.7037656576277296,
+            "support": 2168.0
+          }
+        },
+        "model_comparison": {
+          "logistic_regression": {
+            "cv_roc_auc": 0.7677461299245805,
+            "test_roc_auc": 0.7703992874703112,
+            "test_f1": 0.7479289940828402
+          },
+          "random_forest": {
+            "cv_roc_auc": 0.7608710940249253,
+            "test_roc_auc": 0.7686275122574551,
+            "test_f1": 0.6827880512091038
+          }
+        }
+      }
+    },
+    "revenue_at_risk_regressor": {
+      "artifact": "models\\artifacts\\revenue_at_risk_regressor.joblib",
+      "metrics": {
+        "model_type": "revenue_at_risk_regressor",
+        "trained_at_utc": "2026-10-02T12:27:17.318230+00:00",
+        "rows": 2500,
+        "mae": 33928.370701099215,
+        "rmse": 105884.49448649446,
+        "r2": 0.9902463719610247
+      }
+    },
+    "monthly_revenue_forecaster": {
+      "artifact": "models\\artifacts\\monthly_revenue_forecaster.joblib",
+      "metrics": {
+        "model_type": "monthly_revenue_forecaster",
+        "trained_at_utc": "2026-10-02T12:27:19.049532+00:00",
+        "observations": 39,
+        "train_observations": 31,
+        "test_observations": 8,
+        "mae": 12900419.659615885,
+        "rmse": 15287120.856739042,
+        "mape_pct": 11.038868032842586,
+        "r2": -0.7991310592817487
+      }
+    },
+    "revenue_anomaly_detector": {
+      "artifact": "models\\artifacts\\revenue_anomaly_detector.joblib",
+      "metrics": {
+        "model_type": "isolation_forest_revenue_anomaly",
+        "trained_at_utc": "2026-10-02T12:27:22.045056+00:00",
+        "rows": 1350,
+        "ml_anomalies": 68,
+        "sql_anomalies": 24,
+        "agreement_pct": 96.74074074074073
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "total_revenue_usd": 3434965350.43,
+  "gross_margin_pct": 62.92,
+  "total_revenue_at_risk_usd": 1405333951.61,
+  "avg_renewal_risk_score": 22.74,
+  "sla_compliance_pct": 34.15,
+  "request_failure_rate_pct": 1.2978,
+  "avg_renewable_energy_pct": 72.0,
+  "avg_carbon_intensity": 0.139844,
+  "margin_health_score": 62.92,
+  "support_health_score": 34.15,
+  "reliability_health_score": 87.02,
+  "retention_health_score": 77.26,
+  "sustainability_health_score": 72.0,
+  "customer_health_score": 65.29,
+  "business_health_score": 67.56,
+  "business_health_band": "Watch"
+}

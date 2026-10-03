@@ -1,0 +1,74 @@
+{
+  "validation": {
+    "model_name": "logistic_regression",
+    "threshold": 0.75,
+    "roc_auc": 0.7778298570424186,
+    "pr_auc": 0.26547480036626026,
+    "accuracy": 0.8768656716417911,
+    "precision": 0.25,
+    "recall": 0.47058823529411764,
+    "f1": 0.32653061224489793,
+    "tn": 227,
+    "fp": 24,
+    "fn": 9,
+    "tp": 8
+  },
+  "test": {
+    "model_name": "logistic_regression",
+    "threshold": 0.75,
+    "roc_auc": 0.7454625940681717,
+    "pr_auc": 0.18047901337880023,
+    "accuracy": 0.8773234200743495,
+    "precision": 0.2222222222222222,
+    "recall": 0.3333333333333333,
+    "f1": 0.26666666666666666,
+    "tn": 230,
+    "fp": 21,
+    "fn": 12,
+    "tp": 6
+  },
+  "candidate_models": [
+    {
+      "model_name": "logistic_regression",
+      "threshold": 0.75,
+      "roc_auc": 0.7778298570424186,
+      "pr_auc": 0.26547480036626026,
+      "accuracy": 0.8768656716417911,
+      "precision": 0.25,
+      "recall": 0.47058823529411764,
+      "f1": 0.32653061224489793,
+      "tn": 227,
+      "fp": 24,
+      "fn": 9,
+      "tp": 8
+    },
+    {
+      "model_name": "hist_gradient_boosting",
+      "threshold": 0.07,
+      "roc_auc": 0.8036090930396063,
+      "pr_auc": 0.2132187718645045,
+      "accuracy": 0.8843283582089553,
+      "precision": 0.25,
+      "recall": 0.4117647058823529,
+      "f1": 0.3111111111111111,
+      "tn": 230,
+      "fp": 21,
+      "fn": 10,
+      "tp": 7
+    },
+    {
+      "model_name": "random_forest",
+      "threshold": 0.47,
+      "roc_auc": 0.8017342395125381,
+      "pr_auc": 0.1750197477650324,
+      "accuracy": 0.835820895522388,
+      "precision": 0.2127659574468085,
+      "recall": 0.5882352941176471,
+      "f1": 0.3125,
+      "tn": 214,
+      "fp": 37,
+      "fn": 7,
+      "tp": 10
+    }
+  ]
+}

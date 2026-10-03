@@ -1,0 +1,32 @@
+{
+  "monthly_revenue": {
+    "rows": 45,
+    "columns": 11,
+    "profile": "reports\\profiling\\monthly_revenue_profile.json"
+  },
+  "customer_360": {
+    "rows": 2500,
+    "columns": 30,
+    "profile": "reports\\profiling\\customer_360_profile.json"
+  },
+  "revenue_risk": {
+    "rows": 2500,
+    "columns": 20,
+    "profile": "reports\\profiling\\revenue_risk_profile.json"
+  },
+  "market_opportunity": {
+    "rows": 11,
+    "columns": 21,
+    "profile": "reports\\profiling\\market_opportunity_profile.json"
+  },
+  "cloud_finops": {
+    "rows": 10,
+    "columns": 19,
+    "profile": "reports\\profiling\\cloud_finops_profile.json"
+  },
+  "business_health": {
+    "rows": 1,
+    "columns": 16,
+    "profile": "reports\\profiling\\business_health_profile.json"
+  }
+}

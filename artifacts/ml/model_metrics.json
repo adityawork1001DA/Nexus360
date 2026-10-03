@@ -1,0 +1,30 @@
+{
+  "validation": {
+    "model_name": "logistic_regression",
+    "threshold": 0.1,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tn": 313,
+    "fp": 0,
+    "fn": 0,
+    "tp": 62
+  },
+  "test": {
+    "model_name": "logistic_regression",
+    "threshold": 0.1,
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "tn": 313,
+    "fp": 0,
+    "fn": 0,
+    "tp": 62
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "model_type": "monthly_revenue_forecaster",
+  "trained_at_utc": "2026-10-02T12:27:19.049532+00:00",
+  "observations": 39,
+  "train_observations": 31,
+  "test_observations": 8,
+  "mae": 12900419.659615885,
+  "rmse": 15287120.856739042,
+  "mape_pct": 11.038868032842586,
+  "r2": -0.7991310592817487
+}

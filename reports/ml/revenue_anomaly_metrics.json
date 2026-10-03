@@ -1,0 +1,8 @@
+{
+  "model_type": "isolation_forest_revenue_anomaly",
+  "trained_at_utc": "2026-10-02T12:27:22.045056+00:00",
+  "rows": 1350,
+  "ml_anomalies": 68,
+  "sql_anomalies": 24,
+  "agreement_pct": 96.74074074074073
+}
