@@ -4,15 +4,15 @@
   "model_prediction_end": "2025-12-31",
   "selected_model": "logistic_regression",
   "decision_threshold": 0.75,
-  "customers_scored": 2087,
-  "predicted_churn_customers": 471,
-  "predicted_churn_rate_pct": 22.57,
-  "average_churn_probability_pct": 42.48,
+  "customers_scored": 2134,
+  "predicted_churn_customers": 424,
+  "predicted_churn_rate_pct": 19.87,
+  "average_churn_probability_pct": 46.48,
   "risk_distribution": {
-    "Critical": 471,
-    "High": 500,
-    "Medium": 424,
-    "Low": 692
+    "Critical": 424,
+    "High": 639,
+    "Medium": 614,
+    "Low": 457
   },
-  "expected_contract_value_at_risk_usd": 90237564.31
+  "expected_contract_value_at_risk_usd": 485806540.87
 }

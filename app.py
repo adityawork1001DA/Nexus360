@@ -32,6 +32,10 @@ from src.ui.pages.product import (
 from src.ui.pages.revenue import (
     render as render_revenue,
 )
+
+from src.ui.pages.admin import (
+    render as render_admin,
+)
 from src.ui.theme import apply_theme
 
 
@@ -66,6 +70,7 @@ PAGES = [
     "Market Intelligence",
     "Predictive ML",
     "AI Copilot",
+    "Admin Control Center",
 ]
 
 
@@ -234,6 +239,9 @@ def main() -> None:
 
     elif page == "AI Copilot":
         render_ai()
+
+    elif page == "Admin Control Center":
+        render_admin()
 
     else:
         render_home()
