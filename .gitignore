@@ -65,3 +65,5 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+# Database backups
+backups/
