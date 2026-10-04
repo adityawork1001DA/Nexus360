@@ -35,22 +35,185 @@ def load_cloud_intelligence_data() -> dict[str, pd.DataFrame]:
 
     loader = AnalyticsDataLoader()
 
+    finops = loader.load_view(
+        "v_cloud_finops"
+    ).copy()
+
+    customers = loader.load_view(
+        "v_customer_cloud_efficiency"
+    ).copy()
+
+    datacenters = loader.load_view(
+        "v_datacenter_operations"
+    ).copy()
+
+    sustainability = loader.load_view(
+        "v_cloud_sustainability"
+    ).copy()
+
+    weather = loader.load_view(
+        "v_weather_cloud_correlation"
+    ).copy()
+
+    # --------------------------------------------------------
+    # Semantic compatibility layer
+    # --------------------------------------------------------
+    # Cloud Intelligence UI originally used earlier semantic
+    # column names. Production analytics views expose newer,
+    # explicit metric names. Normalize them here so the UI
+    # remains decoupled from physical view naming.
+    # --------------------------------------------------------
+
+    finops = finops.rename(
+        columns={
+            "cost_per_compute_hour_usd":
+                "cost_per_compute_hour",
+            "cost_per_million_requests_usd":
+                "cost_per_million_requests",
+            "carbon_kg_per_compute_hour":
+                "carbon_per_compute_hour_kg",
+            "cloud_cost_rank":
+                "cost_rank",
+        }
+    )
+
+    customers = customers.rename(
+        columns={
+            "revenue_usd":
+                "lifetime_revenue_usd",
+            "cloud_cost_to_revenue_pct":
+                "cloud_cost_pct_of_revenue",
+            "efficiency_quintile":
+                "cloud_efficiency_quintile",
+        }
+    )
+
+    sustainability = sustainability.rename(
+        columns={
+            "carbon_kg_per_compute_hour":
+                "carbon_per_compute_hour_kg",
+            "renewable_energy_rank":
+                "renewable_rank",
+            "carbon_intensity_rank":
+                "carbon_efficiency_rank",
+        }
+    )
+
+    weather = weather.rename(
+        columns={
+            "temperature_compute_corr":
+                "temperature_compute_correlation",
+            "temperature_cost_corr":
+                "temperature_cost_correlation",
+            "temperature_carbon_corr":
+                "temperature_carbon_correlation",
+            "max_temperature_failure_corr":
+                "max_temperature_failure_correlation",
+            "precipitation_failure_corr":
+                "precipitation_failure_correlation",
+            "wind_failure_corr":
+                "wind_failure_correlation",
+        }
+    )
+
+    # --------------------------------------------------------
+    # Region enrichment
+    # --------------------------------------------------------
+    # Datacenter operations is the canonical source for region.
+    # Sustainability/weather are datacenter-grain datasets, so
+    # enrich region_name through datacenter_code.
+    # --------------------------------------------------------
+
+    if (
+        "datacenter_code" in datacenters.columns
+        and "region_name" in datacenters.columns
+    ):
+        region_map = (
+            datacenters[
+                ["datacenter_code", "region_name"]
+            ]
+            .drop_duplicates(
+                subset=["datacenter_code"]
+            )
+        )
+
+        if (
+            "datacenter_code" in sustainability.columns
+            and "region_name"
+            not in sustainability.columns
+        ):
+            sustainability = sustainability.merge(
+                region_map,
+                on="datacenter_code",
+                how="left",
+            )
+
+        if (
+            "datacenter_code" in weather.columns
+            and "region_name" not in weather.columns
+        ):
+            weather = weather.merge(
+                region_map,
+                on="datacenter_code",
+                how="left",
+            )
+
+    # --------------------------------------------------------
+    # Sustainability business band
+    # --------------------------------------------------------
+    # Build a deterministic relative band from the two rankings
+    # already calculated by the analytics semantic layer.
+    # Lower rank values represent stronger relative performance.
+    # --------------------------------------------------------
+
+    if (
+        "sustainability_band"
+        not in sustainability.columns
+        and "renewable_rank" in sustainability.columns
+        and "carbon_efficiency_rank"
+        in sustainability.columns
+    ):
+        score = (
+            sustainability["renewable_rank"]
+            + sustainability["carbon_efficiency_rank"]
+        ) / 2.0
+
+        if len(sustainability) >= 3:
+            percentile = score.rank(
+                method="average",
+                pct=True,
+                ascending=True,
+            )
+
+            sustainability[
+                "sustainability_band"
+            ] = pd.cut(
+                percentile,
+                bins=[
+                    0.0,
+                    1 / 3,
+                    2 / 3,
+                    1.0,
+                ],
+                labels=[
+                    "Leading",
+                    "Balanced",
+                    "Needs Attention",
+                ],
+                include_lowest=True,
+            ).astype(str)
+
+        else:
+            sustainability[
+                "sustainability_band"
+            ] = "Balanced"
+
     return {
-        "finops": loader.load_view(
-            "v_cloud_finops"
-        ),
-        "customers": loader.load_view(
-            "v_customer_cloud_efficiency"
-        ),
-        "datacenters": loader.load_view(
-            "v_datacenter_operations"
-        ),
-        "sustainability": loader.load_view(
-            "v_cloud_sustainability"
-        ),
-        "weather": loader.load_view(
-            "v_weather_cloud_correlation"
-        ),
+        "finops": finops,
+        "customers": customers,
+        "datacenters": datacenters,
+        "sustainability": sustainability,
+        "weather": weather,
     }
 
 
