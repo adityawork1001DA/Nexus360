@@ -31,9 +31,15 @@ class NexusSemanticRetriever:
 
     Only approved Nexus360 semantic views and approved
     ML artifacts can enter the AI grounding pipeline.
-    """
 
-    MAX_ROWS_PER_VIEW = 2500
+    Semantic views are loaded without an artificial row limit
+    so aggregate metrics such as counts, sums and averages are
+    calculated from the complete analytical dataset.
+
+    The grounding layer remains responsible for restricting
+    the number of sample records serialized into the LLM
+    context.
+    """
 
     def retrieve(
         self,
@@ -62,8 +68,8 @@ class NexusSemanticRetriever:
 
             try:
                 frame = load_analytics_view(
-                    view,
-                    limit=self.MAX_ROWS_PER_VIEW,
+                    view_name=view,
+                    limit=None,
                 )
 
                 result.frames[view] = (
