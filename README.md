@@ -1140,17 +1140,10 @@ Nexus360 connects the complete enterprise intelligence lifecycle:
 
 <div align="center">
 
-### Data Engineering + Analytics Engineering + PostgreSQL + Machine Learning + Generative AI + Streamlit + Power BI + External APIs + Cloud Deployment + Automated Testing
+# Aditya Sharma
 
-<br>
+### Aspiring Data Analyst • Business Analyst • BI Developer
 
-**Enterprise Data. Governed Intelligence. Grounded AI. Better Decisions.**
-
-<br>
-
-![Python](https://img.shields.io/badge/Python-Data%20Engineering-3776AB?style=flat-square&logo=python&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Warehouse-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Gemini](https://img.shields.io/badge/Gemini-Grounded%20AI-4285F4?style=flat-square&logo=google&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-Decision%20Intelligence-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+</div>
 
 </div>
