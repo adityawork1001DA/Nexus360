@@ -159,3 +159,4 @@ websockets==16.1.1
 wheel==0.48.0
 widgetsnbextension==4.0.16
 xgboost==3.4.1
+Faker==40.40.0
