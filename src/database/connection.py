@@ -26,9 +26,18 @@ def get_engine() -> Engine:
         f"{host}:{port}/{database}"
     )
 
+    connect_args = {}
+
+    if host not in {
+        "localhost",
+        "127.0.0.1",
+    }:
+        connect_args["sslmode"] = "require"
+
     return create_engine(
         url,
         pool_pre_ping=True,
+        connect_args=connect_args,
     )
 
 
