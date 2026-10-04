@@ -1,8 +1,6 @@
-# Nexus360
+# Nexus360 — Enterprise Intelligence & Decision Automation Platform
 
-**Enterprise Data, Analytics, Machine Learning & AI Intelligence Platform**
-
-Nexus360 is an end-to-end enterprise intelligence platform combining PostgreSQL data engineering, analytics, machine learning, a grounded AI copilot, Streamlit dashboards, Power BI Desktop, external APIs, automated pipelines, testing, and cloud deployment.
+Nexus360 is an end-to-end Enterprise Intelligence & Decision Automation Platform combining PostgreSQL data engineering, analytics, machine learning, a grounded AI copilot, Streamlit dashboards, Power BI Desktop, external APIs, automated pipelines, testing and cloud deployment.
 
 ## Architecture
 
